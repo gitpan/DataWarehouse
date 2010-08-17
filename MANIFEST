@@ -1,5 +1,7 @@
 bin/dw-etl
+bin/dw-load
 bin/dw-nav
+bin/dw-sample
 Changes
 ignore.txt
 lib/DataWarehouse.pod

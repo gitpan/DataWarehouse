@@ -3,7 +3,7 @@ package DataWarehouse::Fact;
 use warnings;
 use strict;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Carp;
 use Data::Dumper;
@@ -17,7 +17,8 @@ use List::MoreUtils qw/uniq/;
 sub new {
     my ( $class, %params ) = @_;
 
-    croak "Error: missing dbh or dsn" if !$params{dbh} and !$params{dsn};
+    croak "Error: One of 'dbh' or 'dsn' parameters is required" if !($params{dbh} xor $params{dsn});
+    croak "Error: missing fact name" if !$params{name};
 
     if ( $params{dsn} ) {
         $params{dbh} = DBI->connect( $params{dsn}, $params{db_user}, $params{db_password} );
@@ -126,7 +127,7 @@ DataWarehouse::Fact - a Data Warehouse Fact table
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =head1 SYNOPSIS
 
