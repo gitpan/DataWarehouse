@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               DataWarehouse
-version:            0.02
+version:            0.03
 abstract:           Perl Data Warehouse Toolkit
 author:
     - Nelson Ferraz <nferraz@gmail.com>
